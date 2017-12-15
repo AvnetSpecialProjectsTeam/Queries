@@ -1,0 +1,9 @@
+Truncate Table CentralDbs.dbo.CurrentForecast
+Truncate Table CentralDbs.dbo.LastForecast
+
+-- Query of Joining ZfcUploadLog With RefDateAvnet and then Utilizing Rank Over Parition To Get Forecast By Months For LastForecast and storing in TempTable
+Insert Into CentralDbs.dbo.LastForecast Select * From(Select  ForeParty, EnterCustMat, MatNbr,PeriodAnalyzeWeek, FyMthNbr, ForeActualRecDate, Time1, ForeRecCust, Rank() Over(Partition By ForeParty, EnterCustMat, MatNbr, FyMthNbr Order by  ForeParty, EnterCustMat, MatNbr,FyMthNbr, ForeActualRecDate Desc, Time1 Desc) as ForecastRank1 From Sap.dbo.ZfcUploadLog Inner join (Select Distinct FyMthNbr, CalWkNbr, Rank() Over( Partition By CalWkNbr Order by CalWkNbr, FyMthNbr Asc) as Rank1 from CentralDbs.dbo.RefDateAvnet) as RefDateAvnetWkMthRelation on ZfcUploadLog.PeriodAnalyzeWeek = RefDateAvnetWkMthRelation.CalWkNbr Where Rank1 = 1) as iq1 Where ForecastRank1 = 2 Order by  ForeParty, EnterCustMat, MatNbr, PeriodAnalyzeWeek, ForecastRank1
+
+-- Query of Joining ZfcUploadLog With RefDateAvnet and then Utilizing Rank Over Parition To Get Forecast By Months For CurrentForecast and storing in TempTable
+Insert Into CentralDbs.dbo.CurrentForecast Select * From(Select  ForeParty, EnterCustMat, MatNbr,PeriodAnalyzeWeek, FyMthNbr, ForeActualRecDate, Time1, ForeRecCust, Rank() Over(Partition By ForeParty, EnterCustMat, MatNbr, FyMthNbr Order by  ForeParty, EnterCustMat, MatNbr,FyMthNbr, ForeActualRecDate Desc, Time1 Desc) as ForecastRank1 From Sap.dbo.ZfcUploadLog Inner join (Select Distinct FyMthNbr, CalWkNbr, Rank() Over( Partition By CalWkNbr Order by CalWkNbr, FyMthNbr Asc) as Rank1 from CentralDbs.dbo.RefDateAvnet) as RefDateAvnetWkMthRelation on ZfcUploadLog.PeriodAnalyzeWeek = RefDateAvnetWkMthRelation.CalWkNbr Where Rank1 = 1) as iq1 Where ForecastRank1 = 1
+ Order by  ForeParty, EnterCustMat, MatNbr, PeriodAnalyzeWeek, ForecastRank1

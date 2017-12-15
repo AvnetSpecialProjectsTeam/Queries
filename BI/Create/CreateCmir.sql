@@ -1,0 +1,25 @@
+USE BI
+
+Create Table BICmir(
+SalesOrg varchar(4),
+DistChannel varchar(2),
+AvnetCust varchar(10),
+Mfg varchar(10),
+MfgPartNo varchar(40),
+Mat varchar(18),
+CustMatNbr varchar(35),
+CustPartRev varchar(5),
+Division varchar(2),
+ShipToParty varchar(10),
+SourceSysId varchar(2),
+ActiveFl varchar(1),
+PriorityFl varchar(1),
+ScmFl varchar(1),
+EndCust varchar(10),
+EndCustPartNo varchar(35),
+EndUser varchar(10),
+Cust varchar(16),
+CustNbr varchar(10),
+Plant varchar(4),
+PlantMat varchar(18),
+SalesDivision varchar(2))

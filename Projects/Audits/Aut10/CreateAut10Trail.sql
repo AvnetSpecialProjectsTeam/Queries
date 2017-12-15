@@ -1,0 +1,35 @@
+USE SAP
+GO
+
+
+DROP TABLE Aut10Trail
+
+
+CREATE TABLE Aut10Trail
+(
+	SelectionNbr INT NULL,
+	LogDt DATE NOT NULL,
+	LogTime TIME NOT NULL,
+	ChgdBy VARCHAR(10) NULL,
+	EmpName VARCHAR(50) NULL,
+	TransactionCd char(4) NULL,
+	TransactionName VARCHAR(20) NULL,
+	SapTable VARCHAR(20) NULL,
+	TableDesc VARCHAR(50) NULL,
+	TableField VARCHAR(50) NULL,
+	FieldLabel VARCHAR(50) NOT NULL,
+	OldVal VARCHAR(50) NULL,
+	NewVal VARCHAR(50) NULL,
+	DataRecord VARCHAR(50) NULL,
+	ChgDocObj VARCHAR(50) NULL,
+	ObjVal VARCHAR(50) NULL,
+	TableKey VARCHAR(50) NOT NULL,
+	ChgNbr int NULL,
+	PlannedChgNbr VARCHAR(50) NULL,
+	PlannedChgDoc VARCHAR(50) NULL,
+	PlannedChg VARCHAR(50) NULL,
+	TxtChg VARCHAR(50) NULL,
+	Lang VARCHAR(5) NULL,
+	SqlStartTime DATETIME2 DEFAULT SYSDATETIME() NOT NULL
+
+)

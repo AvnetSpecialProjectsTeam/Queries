@@ -1,0 +1,1 @@
+Select mfg, prcstgy, cc, grp, prcstgy+cc+grp as prc_cc_grp, mfg+cc+grp as mfg_cc_grp, pbg+prcstgy+tech+cc+grp as prodheirarchy, matlSpclst, firstname, lastname, empid, matlmgr, pld, srdir  From CentralDbs.dbo.MaterialAor

@@ -1,0 +1,57 @@
+USE SAP 
+GO
+
+DROP TABLE InvValAnal
+
+
+CREATE TABLE InvValAnal
+(
+[Client] [varchar](4) NULL,
+	[Material] [decimal](20, 0) NULL,
+	[ValTyp] [varchar](11) NULL,
+	[ValArea] [varchar](5) NULL,
+	[CreateDt] [varchar](9) NULL,
+	[MvmtTyp] [varchar](4) NULL,
+	[GrCost] [decimal](14, 5) NULL,
+	[GrQty] [decimal](15, 3) NULL,
+	[TtlPoQty] [decimal](13, 0) NULL,
+	[PoNbr] [float] NULL,
+	[ItmNbr] [int] NULL,
+	[PoCost] [decimal](20, 5) NULL,
+	[PricePerUnit] [decimal](6, 1) NULL,
+	[PIRatGR] [decimal](14, 5) NULL,
+	[GrPirValidDt] [varchar](9) NULL,
+	[GrPirCreatDt] [varchar](9) NULL,
+	[CalcWithScale] [varchar](2) NULL,
+	[CurrPirUsd] [decimal](14, 5) NULL,
+	[CurrPirValidDt] [varchar](9) NULL,
+	[CurrPirCreatDt] [varchar](9) NULL,
+	[TtlValStk] [decimal](13, 3) NULL,
+	[CurrVal] [decimal](14, 5) NULL,
+	[VendorAcctNbr] [varchar](11) NULL,
+	[Agreement] [varchar](11) NULL,
+	[DistCostInvReval] [varchar](5) NULL,
+	[DistCostPoUpdate] [varchar](5) NULL,
+	[PoWaitPeriod] [int] NULL,
+	[PoWaitGrace] [int] NULL,
+	[Ncnr] [varchar](2) NULL,
+	[MaxInvAge] [int] NULL,
+	[LookBackWindow] [int] NULL,
+	[MatNcnrFlg] [varchar](2) NULL,
+	[GrPirCostDiff] [decimal](14, 2) NULL,
+	[GrPirCostDiffPercent] [decimal](5, 2) NULL,
+	[PirCurrCostDiff] [decimal](14, 2) NULL,
+	[PirCurrCostDiffPercent] [decimal](5, 2) NULL,
+	[TransAgreement] [varchar](11) NULL,
+	[CurrValCurrPirDiff] [decimal](14, 5) NULL,
+	[CurrValuCurrPirDiffVal] [decimal](14, 2) NULL,
+	[CurrValuCurrPirDiffValPer] [decimal](5, 2) NULL,
+	[PoCreateDt] [varchar](9) NULL,
+	[PoTyp] [varchar](5) NULL,
+	[OutlineAgreement] [varchar](11) NULL,
+	[ActiveCondPo] [varchar](5) NULL,
+	[CondTypDesc] [varchar](21) NULL,
+	[VendorName] [varchar](36) NULL,
+	[InvValGrValMismatch] [varchar](2) NULL,
+	[InvoicePrice] [decimal](14, 5) NULL
+	)
